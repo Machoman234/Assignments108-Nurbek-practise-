@@ -1,4 +1,3 @@
-package com.example.animations;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,7 +12,7 @@ public class HW6 extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        CarPane pane = new CarPane();
+        CirclePane pane = new CirclePane();
 
 
         pane.setOnMousePressed(e -> pane.pause());
@@ -29,10 +28,9 @@ public class HW6 extends Application {
         });
 
         Scene scene = new Scene(pane, 600, 100);
-        primaryStage.setTitle("Exercise_15_29"); // Set the stage title
-        primaryStage.setScene(scene); // Place the scene in the stage
-        primaryStage.show(); // Display the stage
-
+        primaryStage.setTitle("Exercise_15_29"); 
+        primaryStage.setScene(scene); 
+        primaryStage.show();
         pane.requestFocus();
     }
 }
