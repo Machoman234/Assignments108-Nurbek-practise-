@@ -8,7 +8,7 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-public class CarPane extends Pane {
+public class CirclePane extends Pane {
     private double x = 0;
     private double y = 100;
     private double radius = 5;
@@ -18,8 +18,7 @@ public class CarPane extends Pane {
     private Circle circle2;
     private Timeline animation;
 
-    /** Construct and animate a default CarPane */
-    CarPane() {
+    CirclePane() {
         drawCar();
         animation = new Timeline(
                 new KeyFrame(Duration.millis(50), e -> moveCar()));
@@ -27,7 +26,6 @@ public class CarPane extends Pane {
         animation.play();
     }
 
-    /** Create a car an place it in the pane */
     private void drawCar() {
         getChildren().clear();
         rectangle = new Rectangle(x, y - 20, 50, 10);
@@ -38,27 +36,22 @@ public class CarPane extends Pane {
         getChildren().addAll(rectangle, circle1, circle2, polygon);
     }
 
-    /** Pause animation */
     public void pause() {
         animation.pause();
     }
 
-    /** Play animation */
     public void play() {
         animation.play();
     }
 
-    /** Increase rate by 1 */
     public void increaseSpeed() {
         animation.setRate(animation.getRate() + 1);
     }
 
-    /** decrease rate by 1 */
     public void decreaseSpeed() {
         animation.setRate(animation.getRate() > 0 ? animation.getRate() - 1 : 0);
     }
 
-    /** Redraw car with new x value */
     protected void moveCar() {
         if (x <= getWidth()) {
             x += 1;
